@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "TqfDkfhmX+rEQ6Z3IgEqkLgqkVcpkzo/tWQ4ChTeSNyBa0t1hHSLwDFukPqcMB4gSpq+DIrQyKiomOtoXTLTTA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hpi52\\source\\repos\\ASP projects\\tp_presentations\\AtelierTestApplication2\\AtelierTestApplication2\\AtelierTestApplication2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hpi52\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+  ],
+  "logs": []
+}
