@@ -1,0 +1,6 @@
+version: '3'
+services:
+  prod-app:
+    image: ayoubalgharrass/testimageatelierdotnet:latest
+    ports:
+      - 8080:80
