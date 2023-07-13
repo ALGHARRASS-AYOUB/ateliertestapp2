@@ -33,3 +33,4 @@ stages:
         repository: 'ayoubalgharrass/testimageatelierdotnet'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+        tags: 'latest'
