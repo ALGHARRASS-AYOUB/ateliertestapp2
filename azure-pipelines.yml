@@ -31,7 +31,9 @@ stages:
   
     - script: |
         $tag = git describe --tags --abbrev=0
-        echo "Tag showwwwwwwwwwww: $($tag)"
+        $out= git tag
+        echo "$(out)"
+        echo "Tag showwwwwwwwwwww: $(tag)"
         $env:TAG_NUMBER = $tag
         echo $(TAG_NUMBER)
       displayName:  "the tag:::: tag name = $(TAG_NUMBER)  or tag = $(tag)  "
@@ -44,5 +46,5 @@ stages:
         repository: 'ayoubalgharrass/testimageatelierdotnet'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile' 
-        tags: $(TAG_NUMBER)
+        
           
