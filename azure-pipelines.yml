@@ -28,6 +28,7 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+
     - script: |
          $tag = git describe --tags --abbrev=0
           echo "Tag showwwwwwwwwwww: $($tag)"
@@ -42,4 +43,5 @@ stages:
         repository: 'ayoubalgharrass/testimageatelierdotnet'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile' 
+        tags: $(TAG_NUMBER)
           
