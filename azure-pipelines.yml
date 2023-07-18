@@ -3,7 +3,14 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- main
+  branches:
+    include:
+      - main
+      - release/*
+  
+  tags:
+    include:
+      - refs/tags/*
 
 resources:
 - repo: self
@@ -20,17 +27,15 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+
     - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
-    - task: Docker@2
+      displayName: "the build and push command"
       inputs:
         containerRegistry: 'dockerhubregistry'
         repository: 'ayoubalgharrass/testimageatelierdotnet'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: 'latest'
+
+        tags: 
+          "$(TagName)"
+          
