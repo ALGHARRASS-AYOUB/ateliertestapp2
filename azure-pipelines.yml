@@ -34,9 +34,8 @@ stages:
         $out= git tag
         echo "$(out)"
         echo "Tag showwwwwwwwwwww: $(tag)"
-        $env:TAG_NUMBER = $tag
-        echo $(TAG_NUMBER)
-      displayName:  "the tag:::: tag name = $(TAG_NUMBER)  or tag = $(tag)  "
+   
+      displayName:  "the tag:::: t or tag = $(tag)  "
 
 
     - task: Docker@2
