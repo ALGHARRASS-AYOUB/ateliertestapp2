@@ -33,6 +33,14 @@ stages:
         $tagPrefix = 'refs/tags/'
         $tagNumber = $env:BUILD_SOURCEBRANCH -replace $tagPrefix, ''
          echo "Tag Number: $tagNumber"
+
+        powershell: |
+        $tag = git describe --tags --abbrev=0
+        Write-Host "Tag showwwwwwwwwwww: $($tag)"
+        $env:TAG_NUMBER = $tag
+    - script: echo $(TAG_NUMBER)
+
+
     - task: Docker@2
       displayName: "the build and push command"
       inputs:
