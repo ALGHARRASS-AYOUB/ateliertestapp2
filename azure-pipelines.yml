@@ -29,11 +29,6 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - script: |
-        # Retrieve the tag number from the source branch
-        $tagPrefix = 'refs/tags/'
-        $tagNumber = $env:BUILD_SOURCEBRANCH -replace $tagPrefix, ''
-         echo "Tag Number: $tagNumber"
-
         powershell: |
         $tag = git describe --tags --abbrev=0
         Write-Host "Tag showwwwwwwwwwww: $($tag)"
