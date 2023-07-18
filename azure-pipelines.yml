@@ -30,9 +30,8 @@ stages:
     steps:
   
     - script: |
-        $tag = git describe --tags --abbrev=0
-        $out= git tag
-        echo "$(out)"
+        $tag = $(git describe --tags --abbrev=0)
+    
         echo "Tag showwwwwwwwwwww: $(tag)"
    
       displayName:  "the tag:::: t or tag = $(tag)  "
