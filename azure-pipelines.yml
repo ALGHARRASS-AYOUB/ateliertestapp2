@@ -7,6 +7,7 @@ trigger:
     include:
       - main
       - release/*
+    
   
   tags:
     include:
@@ -37,5 +38,5 @@ stages:
         Dockerfile: '**/Dockerfile'
 
         tags: 
-          "$(TagName)"
+          $(Build.SourceBranch)-$(Build.BuildId)-$(Build.SourceVersion)
           
