@@ -31,8 +31,8 @@ stages:
   
     - script: |
         $tag = $(git describe --tags --abbrev=0)
-        echo "Tag showwwwwwwwwwww: $(tag)"
-      displayName:  "the tag:::: t or tag = $(tag)  "
+        echo "Tag showwwwwwwwwwww: $(tag) others: refs/tags/*= $(refs/tags/*) "
+      displayName:  "the tag:::: t or tag   = $(tag)  "
 
     - script: |
         if [ "$(Build.SourceBranch)" == "refs/tags/*" ]; then
