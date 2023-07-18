@@ -3,7 +3,14 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- main
+  branches:
+    include:
+      - main
+      - release/*
+  
+  tags:
+    include:
+      - refs/tags/*
 
 resources:
 - repo: self
@@ -33,4 +40,7 @@ stages:
         repository: 'ayoubalgharrass/testimageatelierdotnet'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: 'latest'
+        #tags: 'latest'
+
+        tags: 
+          $(TagName)
