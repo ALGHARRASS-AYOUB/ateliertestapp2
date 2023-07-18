@@ -29,11 +29,10 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - script: |
-        powershell: |
-        $tag = git describe --tags --abbrev=0
-        Write-Host "Tag showwwwwwwwwwww: $($tag)"
-        $env:TAG_NUMBER = $tag
-    - script: echo $(TAG_NUMBER)
+         $tag = git describe --tags --abbrev=0
+          echo "Tag showwwwwwwwwwww: $($tag)"
+          $env:TAG_NUMBER = $tag
+          echo $(TAG_NUMBER)
 
 
     - task: Docker@2
