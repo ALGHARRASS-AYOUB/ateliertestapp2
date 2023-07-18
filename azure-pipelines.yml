@@ -34,13 +34,18 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+          echo $(tag)
+          echo $(TagName)
     - task: Docker@2
+      displayName: "the build and push command"
       inputs:
         containerRegistry: 'dockerhubregistry'
         repository: 'ayoubalgharrass/testimageatelierdotnet'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+        
         #tags: 'latest'
-
         tags: 
+           echo $(TagName)
           $(TagName)
+          
