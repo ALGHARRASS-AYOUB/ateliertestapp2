@@ -28,15 +28,16 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-
+    - script: |
+        # Retrieve the tag number from the source branch
+        $tagPrefix = 'refs/tags/'
+        $tagNumber = $env:BUILD_SOURCEBRANCH -replace $tagPrefix, ''
+         echo "Tag Number: $tagNumber"
     - task: Docker@2
       displayName: "the build and push command"
       inputs:
         containerRegistry: 'dockerhubregistry'
         repository: 'ayoubalgharrass/testimageatelierdotnet'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
-
-        tags: 
-          $(Build.SourceBranch)-$(Build.BuildId)-$(Build.SourceVersion)
+        Dockerfile: '**/Dockerfile' 
           
