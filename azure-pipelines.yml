@@ -7,6 +7,7 @@ trigger:
     include:
       - main
       - release/*
+    
   
   tags:
     include:
@@ -27,15 +28,24 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+    - checkout: self
 
+    - bash: |
+        TAG=$(Build.SourceBranchName)
+        echo "Tag: $TAG"
+        echo "##vso[task.setvariable variable=TAG_NUMBER]$TAG"
+      displayName: 'Extract and Set Git Tag Number $(Build.SourceBranchName)'
+
+    - script: echo $(TAG_NUMBER)
+      displayName: 'Print Tag Number'
+    
     - task: Docker@2
       displayName: "the build and push command"
       inputs:
         containerRegistry: 'dockerhubregistry'
         repository: 'ayoubalgharrass/testimageatelierdotnet'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
-
-        tags: 
-          "$(TagName)"
+        Dockerfile: '**/Dockerfile' 
+        tags: $(Build.SourceBranchName)
+        
           
