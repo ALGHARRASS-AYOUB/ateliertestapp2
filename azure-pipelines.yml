@@ -48,5 +48,5 @@ stages:
         Dockerfile: '**/Dockerfile' 
         tags: |
           $(Build.SourceBranchName)
-          latest
+    
         
