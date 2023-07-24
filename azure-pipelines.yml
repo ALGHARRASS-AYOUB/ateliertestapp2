@@ -46,6 +46,6 @@ stages:
         repository: 'ayoubalgharrass/testimageatelierdotnet'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile' 
-        tags: $(Build.SourceBranchName)
+        tags: $(Build.SourceBranchName):latest
         
           
